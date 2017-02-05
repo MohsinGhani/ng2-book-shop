@@ -1,0 +1,31 @@
+<!--<app-navbar [currentUserKey]="currentUserKey"></app-navbar>-->
+<div class="container">
+<div class="row">
+  <div class="col-sm-12" *ngFor="let book of books">
+    <div class="book">
+    <div class="row">
+      <div class="col-sm-12"><h3>{{book.title}}</h3></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+            <div class="image">
+              <img [src]="book.image" [alt]="book.title" style="width: 150px; height: 150px;">
+            </div>
+      </div>  
+     <div class="col-sm-6 detail">
+          <p><strong>Author: </strong>{{book.author}}</p>
+          <p><strong>Pages: </strong>{{book.pages}}</p>
+          <p><strong>URL: </strong><a href="{{book.url}}" target="_blank">Click to Visite</a></p>
+          <p><strong>Pages: </strong>{{book.pages}}</p>
+    </div>
+        <div class="col-sm-3">
+            <div class="price-wrap">
+					      <span class="tag-head">&nbsp;</span>
+                <p class="post-price" alt="price in pakistan">Rs.21,989</p>
+				   </div>
+        </div>
+    </div>
+  </div>
+  </div><!--book-->
+</div>
+</div><!--container-->

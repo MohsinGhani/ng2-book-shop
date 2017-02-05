@@ -1,0 +1,37 @@
+<app-navbar [currentUserKey]="currentUserKey"></app-navbar>
+<div class="container">
+<div class="row">
+  <div class="col-sm-12" *ngFor="let book of books; let i = index">
+    <div class="book">
+    <div class="row">
+      <div class="col-sm-12"><h3>{{book.title}}</h3></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+            <div class="image">
+              <img [src]="book.image" [alt]="book.title" style="width: 120px; height: 120px;">
+            </div>
+            <div class="cart-btn">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="addToCart(i)">Add to Cart</button>
+            </div>
+      </div>  
+      <div class="col-sm-1"></div>
+     <div class="col-sm-5 detail">
+          <p><strong>By: </strong>{{book.author}}</p>
+          <p><strong>Publisher: </strong>{{book.publisher}}</p>
+          <p><strong>Pages: </strong>{{book.pages}}</p>
+          <p class="list-price"><strong>List Price: </strong><span>Rs.{{book.listPrice}}</span></p>
+          <p><strong>Our Price: </strong>Rs.{{book.ourPrice}}</p>
+    </div>
+        <div class="col-sm-3">
+            <div class="price-wrap">
+					      <span class="tag-head">&nbsp;</span>
+                <p class="post-price" alt="price in pakistan">Rs.{{book.ourPrice}}</p>
+				   </div>
+           
+        </div>
+    </div>
+  </div>
+  </div><!--book-->
+</div>
+</div><!--container-->

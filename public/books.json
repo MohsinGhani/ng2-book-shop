@@ -1,0 +1,19 @@
+{
+    "books" : [
+        {
+            "title": "A Smarter Way to Learn JavaScript",
+            "author": "Mark Myers",
+            "url": "https://www.cs.unm.edu/~joel/cs105/note/Textbook_ASmarterWaytoLearnJavaScript.pdf"
+        },
+        {
+            "title": "HTML & CSS: Design and Build Web Sites",
+            "author": "Jon Duckett",
+            "url": "http://ebook-dl.com/item/html-and-css-design-and-build-web-sites-jon-duckett"
+        },
+        {
+            "title": "MySQL and PHP",
+            "author": "Matt Doyle",
+            "url": "http://cs.petrsu.ru/~musen/php/2013/Books/Beginning%20PHP%205.3%20by%20Matt%20Doyle.pdf"
+        }
+    ]
+}

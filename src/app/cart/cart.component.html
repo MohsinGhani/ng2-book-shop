@@ -1,0 +1,36 @@
+<app-navbar [currentUserKey]="currentUserKey"></app-navbar>
+<div class="container content">
+  <h2>Shoping Cart</h2>
+  <div class="row items" *ngFor="let item of cartItems; let i = index">
+    <div class="col-sm-2">
+      <img [src]="item.image" width="75" height="75">
+    </div>
+
+    <div class="col-sm-4">
+      <p>Book Name</p>
+      <strong>{{item.title}}</strong>
+    </div>
+
+    <div class="col-sm-4">
+      <p>Author Name</p>
+      <strong>{{item.author}}</strong>
+    </div>
+    
+    <div class="col-sm-1">
+      <p>Price</p>
+      <h5>{{item.ourPrice}}</h5>
+    </div>
+
+    <div class="col-sm-1">
+      <br>
+      <button type="button" class="btn btn-outline-danger btn-sm" (click)="deletItem(i)">X</button>
+    </div>
+
+  </div>
+  <hr>
+  <div class="row total-price">
+    <div class="col-sm-6">Total Price</div>
+    <div class="col-sm-6">Rs.{{totalPrice}}</div>
+  </div>
+  <hr>
+</div>

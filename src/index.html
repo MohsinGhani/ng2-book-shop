@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Book Shop</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root>Loading...</app-root>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBGvPUK97wWygtB39H6StPNCIloyvyuU6Y",
+    authDomain: "angular2-firebase-db.firebaseapp.com",
+    databaseURL: "https://angular2-firebase-db.firebaseio.com",
+    storageBucket: "angular2-firebase-db.appspot.com",
+    messagingSenderId: "455774952049"
+  };
+  firebase.initializeApp(config);
+
+  var root = firebase.database().ref();
+  root.on('value', function(snap){
+    //console.log(snap.val());
+  });
+</script>
+
+
+</body>
+</html>

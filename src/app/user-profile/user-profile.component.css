@@ -1,0 +1,11 @@
+.content{
+  min-height: 500px;
+}
+h2{
+  color: #006600;
+}
+
+.action-btn{
+  float: right;
+  margin-bottom: 50px;
+}

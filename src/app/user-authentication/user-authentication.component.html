@@ -1,0 +1,77 @@
+<app-home-nav></app-home-nav>
+<div class="container">
+<div class="signUp-form">
+<form (ngSubmit)="onSubmit()" #userForm="ngForm" novalidate>
+  <h2>Create a new Account</h2>
+
+  <div *ngIf="emailAlert" class="alert alert-danger">
+      Email Address already Exist Please use another Email ID!
+  </div>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" [(ngModel)]="users.name" minlength="5" maxlength="30" #name="ngModel" class="form-control" id="name" name="name" placeholder="name" required>
+    <!--Validation Divs For name-->
+    <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+      <div [hidden]="!name.errors.required">User name is Required!</div>
+      <div [hidden]="!name.errors.minlength">Name must be at least 5 characters long.</div>
+      <div [hidden]="!name.errors.maxlength">Name cannot be more than 30 characters long.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" [(ngModel)]="users.email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel" class="form-control" id="email" name="email" placeholder="email" required>
+    <!--Validation Divs For Email-->
+    <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+      <div [hidden]="!email.errors.required">Email Address is Required!</div>
+      <div [hidden]="!email.errors.pattern">Email is required and format should be mohsin@gmail.com</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="contact">Contact No:</label>
+    <input type="text" [(ngModel)]="users.contact" minlength="11" #contact="ngModel" class="form-control" id="contact" name="contact" placeholder="Contact Number" required>
+    <!--Validation Divs For contact-->
+    <div *ngIf="contact.errors && (contact.dirty || contact.touched)" class="alert alert-danger">
+      <div [hidden]="!contact.errors.required">Contact number is Required!</div>
+      <div [hidden]="!contact.errors.minlength">Contact number must be 11 digits long.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+  <label for="gender">Gender</label>
+  <select class="form-control" id="gender" required [(ngModel)]="users.gender" #gender="ngModel" name="gender">
+    <option *ngFor="let g of Usergender">{{g}}</option>
+  </select>
+  
+  <!--Validation Divs For Gender-->
+  <div *ngIf="gender.errors && (gender.dirty || gender.touched)" class="alert alert-danger">
+    <div [hidden]="!gender.errors.required">gender are Required!</div>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" [(ngModel)]="users.password" validateEqual="confirmPassword"  name="password"  reverse="true"  #password="ngModel" class="form-control" id="password" placeholder="password" required>
+    <!--Validation Divs For password-->
+    <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
+      <div [hidden]="!password.errors.required">Password is Required!</div>
+      <div [hidden]="password.valid || (password.pristine && !userForm.submitted)" class="text-danger">
+        Password is required
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="confirmPassword">Retype Password</label>
+    <input type="password" [(ngModel)]="users.confirmPassword" validateEqual="password" name="confirmPassword"  reverse="false"  #confirmPassword="ngModel" class="form-control" id="confirmPassword"  placeholder="Confirm Password" required>
+    <!--Validation Divs For RE-Password-->   
+      <div [hidden]="confirmPassword.valid || (confirmPassword.pristine && !userForm.submitted)" class="alert alert-danger">
+        Password mismatch
+      </div>
+    </div>
+
+  <button type="submit" [disabled]="!userForm.form.valid" class="btn btn-outline-success">Submit</button>
+</form>
+</div><!--sgnUp-Form-->
+</div><!--container-->

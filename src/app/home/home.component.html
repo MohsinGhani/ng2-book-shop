@@ -1,0 +1,45 @@
+<app-home-nav></app-home-nav>
+<div class="content">
+<div class="container-fluid">
+<!--slider-->
+<div id="captioned-gallery">
+	<figure class="slider">
+		<figure *ngFor="let image of sliderImgs">
+			<img [src]="image" class="img-fluid">
+		</figure>
+	</figure>
+</div>
+</div><!--container-fluid-->
+<hr>
+<div class="container">
+
+<div class="row">
+	<div class="col-sm-12"><h2>Buy Books Online From Book Shop</h2></div>
+</div>
+<br>
+<div class="row">
+	<div class="col-sm-5">
+	<img [src]="heading2Img" class="img-fluid" alt="Buy Books Online From Book Shop">
+	</div>
+	<div class="col-sm-7 h2-description">
+	  	<p>	Book Shop is an online books marketplace that brings together buyers and sellers.
+			whether you are looking for the latest releases or something hard-to-find, you can  
+			find it at drastically reduced prices on Book Shop. Want to earn some extra cash
+			selling your used or new books? List your titles on Book Shop using our automated
+			cataloging process and you are ready to go!<br>
+			To purchase books  the level of convenience for you has now been taken to a greater
+			height by the website. Just while sitting at "Books" you can choose from a vast variety.
+		<p>
+	</div>
+</div>
+<hr>
+<h2>New Books</h2>
+<div class="row">
+  <div class="col-sm-3 book-section" *ngFor="let image of sectionImages; let i = index">
+        <img [src]="image" width="210" height="200">
+        <p title="{{description[i]}}">{{description[i]}}</p>
+		<button (click)="addToCart(description[i])" class="btn btn-outline-success btn-sm">Add to Cart</button>
+  </div>
+</div>
+</div><!--content-->
+</div><!--container-->

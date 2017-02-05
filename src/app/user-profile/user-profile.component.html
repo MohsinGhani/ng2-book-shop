@@ -1,0 +1,127 @@
+<app-navbar [currentUserKey]="currentUserKey"></app-navbar>
+<div class="container content">
+<div *ngIf="userProfile">
+  <h2>Profile</h2>   
+  <table class="table table-hover">
+  <tbody>
+    <tr>
+      <th>Name:</th>
+      <td>{{currentUserData.name}}</td>
+    </tr>
+    <tr>
+      <th>Email:</th>
+      <td>{{currentUserData.email}}</td>
+    </tr>
+    <tr>
+      <th>Contact:</th>
+      <td>{{currentUserData.contact}}</td>
+    </tr>
+    <tr>
+      <th>Gender:</th>
+      <td>{{currentUserData.gender}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!--Edit Profile Section-->
+<div *ngIf="editProfile">
+<form (ngSubmit)="onEdit()" #userForm="ngForm" novalidate>
+  <h2>Edit Profile</h2>
+
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" [(ngModel)]="editUser.name" minlength="5" maxlength="30" #name="ngModel" class="form-control" id="name" name="name" placeholder="name" required>
+    <!--Validation Divs For name-->
+    <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+      <div [hidden]="!name.errors.required">User name is Required!</div>
+      <div [hidden]="!name.errors.minlength">Name must be at least 5 characters long.</div>
+      <div [hidden]="!name.errors.maxlength">Name cannot be more than 30 characters long.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="contact">Contact No:</label>
+    <input type="text" [(ngModel)]="editUser.contact" minlength="11" #contact="ngModel" class="form-control" id="contact" name="contact" placeholder="Contact Number" required>
+    <!--Validation Divs For contact-->
+    <div *ngIf="contact.errors && (contact.dirty || contact.touched)" class="alert alert-danger">
+      <div [hidden]="!contact.errors.required">Contact number is Required!</div>
+      <div [hidden]="!contact.errors.minlength">Contact number must be 11 digits long.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+  <label for="gender">Gender</label>
+  <select class="form-control" id="gender" required [(ngModel)]="editUser.gender" #gender="ngModel" name="gender">
+    <option *ngFor="let g of Usergender">{{g}}</option>
+  </select>
+  
+  <!--Validation Divs For Gender-->
+  <div *ngIf="gender.errors && (gender.dirty || gender.touched)" class="alert alert-danger">
+    <div [hidden]="!gender.errors.required">gender are Required!</div>
+  </div>
+  </div>
+
+  <button type="submit" [disabled]="!userForm.form.valid" class="btn btn-outline-success">Submit</button>
+</form>
+</div>
+
+<!--Change Password Section-->
+<div *ngIf="changePassword">
+  
+<form (ngSubmit)="onChange()" #userForm="ngForm" novalidate>
+  <h2>Change Password</h2>
+
+  <div class="form-group" [hidden]="true">
+    <label for="password">Hidden Password</label>
+    <input type="password" [(ngModel)]="editUser.password" validateEqual="confirmPassword"  name="password"  reverse="true"  #password="ngModel" class="form-control" id="password" placeholder="password" required>
+    <!--Validation Divs For password-->
+    <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
+      <div [hidden]="!password.errors.required">Password is Required!</div>
+      <div [hidden]="password.valid || (password.pristine && !userForm.submitted)" class="text-danger">
+        Password is required
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="confirmPassword">Old Password</label>
+    <input type="password" [(ngModel)]="editUser.oldPassword" validateEqual="password" name="confirmPassword"  reverse="false"  #confirmPassword="ngModel" class="form-control" id="confirmPassword"  placeholder="Old Password" required>
+    <!--Validation Divs For RE-Password-->   
+      <div [hidden]="confirmPassword.valid || (confirmPassword.pristine && !userForm.submitted)" class="alert alert-danger">
+        Password mismatch
+      </div>
+    </div>
+
+    <div class="form-group">
+    <label for="password">New Password</label>
+    <input type="password" [(ngModel)]="editUser.newPassword" validateEqual="confirmNewPassword"  name="newPassword"  reverse="true"  #newPassword="ngModel" class="form-control" id="newPassword" placeholder="New Password" required>
+    <!--Validation Divs For password-->
+    <div *ngIf="newPassword.errors && (newPassword.dirty || newPassword.touched)" class="alert alert-danger">
+      <div [hidden]="!newPassword.errors.required">Password is Required!</div>
+      <div [hidden]="newPassword.valid || (newPassword.pristine && !userForm.submitted)" class="text-danger">
+        Password is required
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="confirmPassword">Retype Password</label>
+    <input type="password" [(ngModel)]="editUser.ConfirmNewPassword" validateEqual="newPassword" name="confirmNewPassword"  reverse="false"  #confirmNewPassword="ngModel" class="form-control" id="confirmPassword"  placeholder="Confirm New Password" required>
+    <!--Validation Divs For RE-Password-->   
+      <div [hidden]="confirmNewPassword.valid || (confirmNewPassword.pristine && !userForm.submitted)" class="alert alert-danger">
+        Password mismatch
+      </div>
+    </div>
+
+  <button type="submit" [disabled]="!userForm.form.valid" class="btn btn-outline-success">Submit</button>
+</form>
+</div>
+
+<div class="action-btn">
+    <button type="button" (click)="showProfile()" class="btn btn-outline-primary btn-sm" *ngIf="!userProfile">Profile</button>
+    <button type="button" (click)="editUserProfile()" class="btn btn-outline-primary btn-sm" *ngIf="!editProfile">Edit Profile</button>
+    <button type="button" (click)="changeUserPassword()" class="btn btn-outline-primary btn-sm" *ngIf="!changePassword">Change Password</button>
+</div>
+<br><br>
+</div><!--container-->

@@ -1,0 +1,64 @@
+.book{
+    border: #d9d9d9 solid 3px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px 10px 10px 10px;
+    padding-bottom: 0px;
+}
+
+.image{
+    width: 120px;
+    margin: 0 auto;
+	margin-bottom: 3px;
+}
+
+.image img{
+	border: #5cb85c solid 2px;
+	border-radius: 5px;
+}
+
+.cart-btn{
+	width: 90px;
+	margin: 0 auto;
+}
+
+.book h3{
+    padding: 5px 0px 5px 20px;
+    background: #d9d9d9;
+}
+
+.detail{
+    text-align: left;
+}
+
+.detail p{
+	margin-bottom: 7px;
+	margin-left: 10px;
+}
+
+.price-wrap{
+	float:right;
+	color:#000;
+	margin-right: 20px;
+	margin-bottom: 10px;
+}
+
+span.tag-head{
+	float:left;
+	background:url(./assets/images/price-tag-head.png) no-repeat scroll left top transparent;
+	height:25px;
+	min-width:33px;
+}
+
+p.post-price{
+	background-color:#ffff99;
+	float:left;
+	font:bold 17px Arial,Helvetica,sans-serif;
+	margin:0;padding:3px 6px 2px;
+	text-shadow:0 1px 0 #FFFFFF;
+	border-radius:0 4px 4px 0;
+	box-shadow:2px 2px 5px #000;}
+
+.list-price span{
+	text-decoration: line-through;
+}

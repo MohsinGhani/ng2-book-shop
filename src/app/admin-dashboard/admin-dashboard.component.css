@@ -1,0 +1,36 @@
+.book{
+    border: #d9d9d9 solid 3px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px 10px 10px 10px;
+    padding-bottom: 5px;
+}
+
+.image{
+    width: 150px;
+    margin: 0 auto;
+}
+
+.book h3{
+    padding: 5px 5px 5px 20px;
+    background: #d9d9d9;
+}
+
+.detail{
+    text-align: left;
+}
+
+.detail p{
+	margin-bottom: 7px;
+	margin-left: 10px;
+}
+
+.edit-btn{
+	width: 100px;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+
+.edit-btn button{
+	width: 100px;
+}

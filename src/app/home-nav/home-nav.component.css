@@ -1,0 +1,10 @@
+.nav-hr{
+     margin-top: 8px;
+     margin-bottom: 8px;
+ }
+
+ .dropdown-menu {
+    text-align: center;
+    background-color: #f7f7f7;
+    margin: 0.500rem 0 0;
+}

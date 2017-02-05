@@ -1,0 +1,48 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="container">
+  <div class="content">
+  <h2>Members Request</h2>
+  <table class="table table-sm">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>NAME</th>
+      <th>AUTHOR</th>
+      <th>DETAIL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let request of requests; let i = index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{request.title}}</td>
+      <td>{{request.author}}</td>
+      <td><button type="button" (click)="detail(i)" class="btn btn-success btn-sm"  data-target="#detailModal" data-toggle="modal">Detail</button></td>
+    </tr>
+  </tbody>
+</table>
+        <!--Model Start-->
+        <div class="modal fade" id="detailModal" data-keyboard="false" data-backdrop="static" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Member Detail</h4>
+                <button class="close pull-right" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <ul>
+                  <li><strong>Book Name: </strong>{{currentRequest.title}}</li>
+                  <li><strong>Author Name: </strong>{{currentRequest.author}}</li>
+                  <li><strong>User Email: </strong>{{currentRequest.email}}</li>
+                  <li><strong>User Contact: </strong>{{currentRequest.contact}}</li>
+                  <li><strong>User Comment: </strong>{{currentRequest.comment}}</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-outline-warning" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div><!--Model End-->
+  </div><!--content-->
+
+</div><!--container-->

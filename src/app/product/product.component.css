@@ -1,0 +1,40 @@
+.book{
+    border: #d9d9d9 solid 3px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px 10px 10px 10px;
+    padding-bottom: 5px;
+}
+
+.image{
+    width: 150px;
+    margin: 0 auto;
+}
+
+.book h3{
+    padding: 5px 0px 5px 20px;
+    background: #d9d9d9;
+}
+
+.detail{
+    text-align: center;
+}
+
+.price-wrap{
+	float:right;
+	color:#000;
+}
+
+span.tag-head{
+	float:left;
+	height:25px;margin:0;padding:0;width:33px;
+}
+
+p.post-price{
+	background-color:#ffff99;
+	float:left;
+	font:bold 17px Arial,Helvetica,sans-serif;
+	margin:0;padding:3px 6px 2px;
+	text-shadow:0 1px 0 #FFFFFF;
+	border-radius:0 4px 4px 0;
+	box-shadow:2px 2px 5px #000;}

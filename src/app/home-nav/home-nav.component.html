@@ -1,0 +1,40 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded navbar-fixed-top">
+<div class="container">
+  <div class="navbar-header">
+    <!--navbar-toggler-right-->
+  <button class="navbar-toggler collapsed" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+   <a class="navbar-brand" [routerLink]="['/home']">Book Shop</a>
+  </div>
+  <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/home']">Home<span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/comments']">Comments</a>
+        </li>
+
+        <li class="nav-item dropdown">
+        <a class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li class="nav-item"><a class="nav-link"  [routerLink]="['/about']">About Project</a></li>
+            <li class="nav-item"><a class="nav-link"  [routerLink]="['/personal-intro']">About me</a></li>
+          </ul>
+        </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/login']">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/user-authentication']">Sign Up</a>
+      </li> 
+    </ul>
+  </div>
+</div>
+</nav>
+<hr class="nav-hr">

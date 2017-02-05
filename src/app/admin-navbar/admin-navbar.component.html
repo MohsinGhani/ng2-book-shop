@@ -1,0 +1,32 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded navbar-fixed-top">
+<div class="container">
+  <div class="navbar-header">
+  <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+   <a class="navbar-brand" [routerLink]="['/admin-dashboard']">Book Shop</a>
+  </div>
+  <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/admin-dashboard']">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin-dashboard/user-list']">Members</a>
+      </li>   
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin-dashboard/request-list']">Requests</a>
+      </li>   
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin-dashboard/book-form']">Add Book</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/']" (click)="logout()">Logout</a>
+      </li>     
+    </ul>
+  </div>
+</div>
+</nav>
+<hr class="nav-hr">

@@ -1,0 +1,37 @@
+<div *ngIf="hereUser">
+  <app-navbar [currentUserKey]="currentUserKey"></app-navbar>
+</div>
+<div *ngIf="!hereUser">
+  <app-home-nav></app-home-nav>
+</div>
+<div class="container content">
+  <h3>INTRODUCTION</h3>
+  <p>This is my first <span> Angular 2 with Firebase Project</span>, I had build it in a month with very hardwork
+    because during this project i was learn Angular 2 and implement it in my Project at a time. I build this Project for my Practice and clear concept about Angular 2.
+    I hope this learning is very beneficial for my future and very helpfull for my future projects which i want to make as my Portfolio.
+  </p>
+  
+  <hr><h3>FUNCTIONALITY FOR USER</h3>
+  <ol>
+    <li><strong>Registration: </strong>User must be Register our self for purchase Product.</li>
+    <li><strong>Authentication: </strong>I'm create proper authentication system for user. Anybody cannot see user information or profile</li>
+    <li><strong>Login: </strong>User can login after Registration from our email id.</li>
+    <li><strong>Buy Product: </strong>There is a button of add cart in every product, If user want any product then they can add the product in their shopping cart.</li>
+    <li><strong>Shoping Cart: </strong>User can add their product in shopping cart and then they can see the Total Amount of the Product if the Amount is out of budget then user can get back or delete own product from cart</li>
+    <li><strong>Update Profile: </strong>User can Update our Profile eg: Name, Number etc.</li>
+    <li><strong>Change Password: </strong>User can Change our Password.</li>
+    <li><strong>Product Request: </strong>If there Isn't any product in website and user want that then user can request to the admin about that</li>
+    <li><strong>Form Validation: </strong>I'm create Proper Validation form from user Registration as well product request</li>
+  </ol>
+
+  <hr><h3>FUNCTIONALITY FOR ADMIN</h3>
+  <ol>
+    <li><strong>Seprate Dashboard: </strong>Admin have Seprate Dashboard Any user cannot enter in admin section</li>
+    <li><strong>Add Product: </strong>Admin can Add Products.</li>
+    <li><strong>Edit Product: </strong>Admin can Edit Product.</li>
+    <li><strong>Delete Product: </strong>Admin can Delete Product.</li>
+    <li><strong>User List: </strong>Admin can see all Registered user list.</li>
+    <li><strong>Block and Unblock: </strong>Admin can block and un-block any user for a spesific time duration.</li>
+    <li><strong>Requist List: </strong>Admin can see user request list jo user ne send ki thi product k liye, and also see the user detail whice send request.</li>
+  </ol>
+</div>

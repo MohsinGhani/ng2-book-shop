@@ -1,0 +1,75 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="container">
+<div>
+<form (ngSubmit)="onSubmit()" #bookForm="ngForm">
+  <h2>Edit Book</h2>
+
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" [(ngModel)]="bookForEdit.title" minlength="5" maxlength="50" #title="ngModel" class="form-control" id="title" name="title" placeholder="Title" required>
+    <!--Validation Divs For Title-->
+    <div *ngIf="title.errors && (title.dirty || title.touched)" class="alert alert-danger">
+      <div [hidden]="!title.errors.required">Book Title is Required!</div>
+      <div [hidden]="!title.errors.minlength">Title must be at least 5 characters long.</div>
+      <div [hidden]="!title.errors.maxlength">Title cannot be more than 30 characters long.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="author">Author:</label>
+    <input type="text" [(ngModel)]="bookForEdit.author" #author="ngModel" class="form-control" id="author" name="author" placeholder="Author" required>
+    <!--Validation Divs For Author-->
+    <div *ngIf="author.errors && (author.dirty || author.touched)" class="alert alert-danger">
+      <div [hidden]="!author.errors.required">Author Name is Required!</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="publisher">Publisher</label>
+    <input type="text" class="form-control" id="publisher" required [(ngModel)]="bookForEdit.publisher" #publisher="ngModel" name="publisher">
+    <!--Validation for list price-->
+    <div *ngIf="publisher.errors && (publisher.dirty || publisher.touched)" class="alert alert-danger">
+      <div [hidden]="!publisher.errors.required">Publisher is Required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="pages">Pages</label>
+    <input type="text" class="form-control" id="pages" required [(ngModel)]="bookForEdit.pages" #pages="ngModel" name="pages">
+    <!--Validation Divs For Pages-->
+    <div *ngIf="pages.errors && (pages.dirty || pages.touched)" class="alert alert-danger">
+      <div [hidden]="!pages.errors.required">Pages are Required!</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="listPrice">List Price</label>
+    <input type="text" class="form-control" id="listPrice" required [(ngModel)]="bookForEdit.listPrice" #listPrice="ngModel" name="listPrice">
+    <!--Validation for list price-->
+    <div *ngIf="listPrice.errors && (listPrice.dirty || listPrice.touched)" class="alert alert-danger">
+      <div [hidden]="!listPrice.errors.required">List Price is Required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="ourPrice">Our Price</label>
+    <input type="text" class="form-control" id="ourPrice" required [(ngModel)]="bookForEdit.ourPrice" #ourPrice="ngModel" name="ourPrice">
+    <!--Validation for list price-->
+    <div *ngIf="ourPrice.errors && (ourPrice.dirty || ourPrice.touched)" class="alert alert-danger">
+      <div [hidden]="!ourPrice.errors.required">Our Price is Required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+      <label for="image">Image:</label>
+      <img [src]="bookForEdit.image" [alt]="bookForEdit.title" style="width: 100px; height: 100px;" #img><br><br>
+      <input type="file" id="image" (change)="onImageUpload(img, input)" class="form-control" #input>
+      <div class="img-src">{{bookForEdit.image}}</div>
+  </div>
+  
+
+  <button type="submit" [disabled]="!bookForm.form.valid" class="btn btn-outline-success">Submit</button>
+</form>
+</div>
+
+</div><!--container-->

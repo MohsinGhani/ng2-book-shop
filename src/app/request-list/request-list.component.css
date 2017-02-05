@@ -1,0 +1,20 @@
+.content{
+  min-height: 1000px;
+}
+
+.content h2{
+  color: #006600;
+}
+
+thead tr{
+    color: #004d00;
+}
+
+tbody tr{
+    color: #003300;
+}
+
+tbody tr:hover{
+    color: #00b300;
+    background: #f2f2f2;
+}
